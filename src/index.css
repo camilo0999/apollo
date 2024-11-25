@@ -1,0 +1,17 @@
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Incluye bordes y padding en el cálculo del tamaño del elemento */
+}
+
+body {
+  background-color: black;
+  color: white; /* Asegura que el texto sea legible sobre el fondo negro */
+  overflow-x: hidden; /* Previene el desbordamiento horizontal */
+}
+
+.content {
+  max-width: 100%; /* Asegura que el contenido no se desborde horizontalmente */
+  overflow-x: hidden; /* Previene el desbordamiento horizontal del contenido */
+}

@@ -1,0 +1,71 @@
+/* Contenedor general de la película */
+.contenedor-pelicula {
+  min-height: 100vh; /* Asegura que ocupe toda la altura visible */
+  background-color: #f9f9f9; /* Color de fondo más suave */
+  margin: 0; /* Elimina margen superior innecesario */
+  width: 100%;
+}
+
+/* Contenedor principal */
+.pelicula-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Asegurar que se adapte al espacio disponible */
+  overflow: hidden;
+}
+
+/* Imagen de la película */
+.pelicula-contenedor img {
+  width: 100%; 
+  height: auto; 
+  max-height: 500px; 
+  object-fit: cover;
+  border-bottom: 3px solid #252850; /* Separador visual */
+}
+
+/* Información de la película */
+.pelicula-info {
+  padding: 25px;
+  text-align: center;
+  color: #444; /* Texto ligeramente más oscuro para mejor legibilidad */
+}
+
+/* Título de la película */
+.pelicula-titulo {
+  font-size: 2.5rem;
+  margin-top: 15px;
+  color: #252850;
+  font-weight: bold; /* Hace que el título sea más destacado */
+}
+
+/* Descripción de la película */
+.pelicula-descripcion {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #666; /* Texto secundario más claro */
+  text-align: justify; 
+  line-height: 1.6; /* Mejora la legibilidad */
+}
+
+/* Botón para reservar */
+.boton-reservar {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #252850;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boton-reservar:hover {
+  background-color: #fff;
+  color: #252850;
+  border: 2px solid #252850;
+  transform: translateY(-3px); 
+}

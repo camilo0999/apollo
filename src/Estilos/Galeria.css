@@ -1,0 +1,7 @@
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    padding: 20px;
+  }
+  

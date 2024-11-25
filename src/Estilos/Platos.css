@@ -1,0 +1,90 @@
+.comida {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  max-width: 390px;
+
+  transition: transform 0.3s, box-shadow 0.3s; /* Transición suave para hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+}
+
+.comida:hover {
+  transform: scale(1.05); /* Efecto de agrandamiento suave al pasar el mouse */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte en hover */
+}
+
+.comida-imagen {
+  width: 100%;
+  height: 150px; /* Fijar altura para consistencia */
+  object-fit: cover; /* Asegurar que la imagen mantenga su aspecto */
+  transition: opacity 0.3s ease; /* Transición suave para hover */
+  border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+}
+
+.comida:hover .comida-imagen {
+  opacity: 0.9; /* Reducir ligeramente la opacidad en hover */
+}
+
+.comida-detalle {
+  padding: 10px 0;
+  color: #333;
+}
+
+.comida-precio {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.boton-comprar {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #252850;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.boton-comprar:hover {
+  background-color: white; 
+  color: #252850;
+  border: #252850 2px solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .comida {
+    margin: 10px 0; /* Ajustar margen */
+    width: 100%;
+  }
+
+  .comida-imagen {
+    height: 120px; /* Ajustar altura para pantallas más pequeñas */
+  }
+
+  .boton-comprar {
+    padding: 8px 15px; /* Ajustar padding del botón */
+    font-size: 0.9em; /* Ajustar tamaño de fuente del botón */
+  }
+}
+
+@media (max-width: 480px) {
+  .comida-imagen {
+    height: auto; /* Ajustar altura para pantallas muy pequeñas */
+    width: 100%;
+  }
+
+  .boton-comprar {
+    padding: 6px 12px; /* Ajustar padding del botón */
+    font-size: 0.8em; /* Ajustar tamaño de fuente del botón */
+  }
+}
+

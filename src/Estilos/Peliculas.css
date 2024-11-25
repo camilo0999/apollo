@@ -1,0 +1,89 @@
+.pelicula {
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 300px; /* Ajuste para ancho máximo */
+  height: auto; /* Dejar que la altura se ajuste automáticamente */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #555;
+  border-radius: 10px; /* Ajustar los bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pelicula:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Mejora del efecto sombra */
+}
+
+.pelicula-imagen {
+  width: 100%;
+  height: auto; /* Ajustar la altura automáticamente */
+  max-height: 180px; /* Ajustar la altura máxima para mantener la proporción */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+.pelicula h2 {
+  font-size: 1.4em; /* Ajustar el tamaño de la fuente */
+  margin: 10px 0;
+  color: #fff; /* Color del texto */
+}
+
+.pelicula p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #ddd; /* Color del texto */
+  text-align: left;
+}
+
+.boton-ver {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #252850;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.boton-ver:hover {
+  background-color: white; 
+  color: #252850;
+  border: #252850 2px solid;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .pelicula {
+    width: 100%;
+    max-width: 100%; /* Ajustar ancho al 100% en pantallas pequeñas */
+    margin: 10px 0; /* Ajustar margen */
+  }
+
+  .pelicula-imagen {
+    max-height: 150px; /* Ajustar altura máxima para pantallas más pequeñas */
+  }
+
+  .boton-ver {
+    padding: 8px 15px; /* Ajustar padding del botón */
+    font-size: 0.9em; /* Ajustar tamaño de fuente del botón */
+  }
+}
+
+@media (max-width: 480px) {
+  .pelicula-imagen {
+    max-height: 120px; /* Ajustar altura máxima para pantallas muy pequeñas */
+  }
+
+  .boton-ver {
+    padding: 6px 12px; /* Ajustar padding del botón */
+    font-size: 0.8em; /* Ajustar tamaño de fuente del botón */
+  }
+}
+
