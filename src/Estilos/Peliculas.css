@@ -3,7 +3,7 @@
   margin: 10px;
   text-align: center;
   width: 100%;
-  max-width: 300px; /* Ajuste para ancho máximo */
+  max-width: 400px; /* Ajuste para ancho máximo */
   height: auto; /* Dejar que la altura se ajuste automáticamente */
   display: flex;
   flex-direction: column;

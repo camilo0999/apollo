@@ -3,11 +3,12 @@ import '../Estilos/LoginForm.css';
 
 const LoginForm = ({ closeModal }) => {
   const [formData, setFormData] = useState({
-    email: '',
+    correo: '', // Cambié 'correo' por 'email' para coincidir con el campo input
     password: '',
   });
 
   const [message, setMessage] = useState(''); // Para manejar mensajes de éxito o error
+  const [isLoading, setIsLoading] = useState(false); // Para mostrar un estado de carga mientras esperamos la respuesta de la API
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,8 +18,12 @@ const LoginForm = ({ closeModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Evita el comportamiento predeterminado del formulario
 
+    setIsLoading(true); // Inicia el estado de carga
+    setMessage(''); // Resetea el mensaje antes de hacer la petición
+
     try {
-      const response = await fetch('https://teatro-apolo-back.onrender.com/api/auth/login', {
+      // Enviar las credenciales a la API de login
+      const response = await fetch('http://localhost:8080/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,13 +35,17 @@ const LoginForm = ({ closeModal }) => {
         const data = await response.json();
         console.log('Inicio de sesión exitoso:', data);
 
+        // Obtiene el token y el id de la respuesta
+        const { token, id } = data; // Desestructuramos el token y el id
+
+        // Guardar el token y el id en localStorage
+        localStorage.setItem('token', token);  // Guardamos el token
+        localStorage.setItem('clientId', id);  // Guardamos el id del cliente
+
         // Muestra un mensaje de éxito
-        setMessage('Inicio de sesión exitoso.');
+        setMessage('Inicio de sesión exitoso y datos guardados.');
 
-        // Opcional: Guarda el token
-        // localStorage.setItem('token', data.token);
-
-        // Cierra la modal automáticamente después de un tiempo
+        // Opcional: Cierra la modal automáticamente después de un tiempo
         setTimeout(() => {
           closeModal(); // Llama a la función pasada por props para cerrar la modal
         }, 2000);
@@ -44,14 +53,16 @@ const LoginForm = ({ closeModal }) => {
         const errorData = await response.json();
         console.error('Error al iniciar sesión:', errorData);
 
-        // Muestra un mensaje de error
-        setMessage('Error al iniciar sesión. Verifica tus credenciales.');
+        // Muestra un mensaje de error con la descripción del error
+        setMessage(errorData.message || 'Error al iniciar sesión. Verifica tus credenciales.');
       }
     } catch (error) {
       console.error('Error en la conexión:', error);
 
       // Muestra un mensaje de error general
       setMessage('Error al conectar con el servidor. Inténtalo más tarde.');
+    } finally {
+      setIsLoading(false); // Termina el estado de carga
     }
   };
 
@@ -70,11 +81,11 @@ const LoginForm = ({ closeModal }) => {
           <label className="form-label">Correo:</label>
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder="Introduce tu correo"
             required
             className="form-input"
-            name="email"
-            value={formData.email}
+            name="correo"  // Cambié 'email' a 'correo' para que coincida con el estado
+            value={formData.correo}
             onChange={handleChange}
           />
         </div>
@@ -82,7 +93,7 @@ const LoginForm = ({ closeModal }) => {
           <label className="form-label">Contraseña:</label>
           <input
             type="password"
-            placeholder="Enter your password"
+            placeholder="Introduce tu contraseña"
             required
             className="form-input"
             name="password"
@@ -90,8 +101,8 @@ const LoginForm = ({ closeModal }) => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="form-button">
-          Login
+        <button type="submit" className="form-button" disabled={isLoading}>
+          {isLoading ? 'Iniciando sesión...' : 'Iniciar sesión'}
         </button>
         {message && <p className="form-message">{message}</p>} {/* Mensaje dinámico */}
       </form>

@@ -7,7 +7,7 @@ const Cartelera = () => {
   return (
     <div>
       <Carrusel />
-      <h2>En Cartelera</h2>
+      <h2 style={{ textAlign: 'center', marginTop: '20px'}}>En Cartelera</h2>
       <Galeria />
     </div>
   );

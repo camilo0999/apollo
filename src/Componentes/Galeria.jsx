@@ -14,7 +14,7 @@ const Galeria = () => {
     useEffect(() => {
         const fetchPeliculas = async () => {
             try {
-                const response = await axios.get('https://teatro-apolo-back.onrender.com/api/movies/');
+                const response = await axios.get('http://localhost:8080/api/peliculas');
                 setPeliculas(response.data); // Suponiendo que el API devuelve un array
             } catch (err) {
                 console.error(err);
@@ -37,11 +37,14 @@ const Galeria = () => {
         <div className="galeria">
             {peliculas.map((pelicula) => (
                 <Pelicula
-                    key={pelicula.id}
-                    title={pelicula.title}
-                    description={pelicula.description}
-                    image={pelicula.image}
-                    _id={pelicula._id}
+                    key={pelicula.PeliculaID}
+                    Titulo={pelicula.Titulo}
+                    Descripcion={pelicula.Descripcion}
+                    Imagenes={pelicula.Imagenes}
+                    PeliculaID={pelicula.PeliculaID}
+                    Duracion={pelicula.Duracion}
+                    Genero={pelicula.Genero}
+                    Estreno={pelicula.Estreno}
                 />
             ))}
         </div>

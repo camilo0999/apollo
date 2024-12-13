@@ -1,71 +1,111 @@
-/* Contenedor general de la película */
-.contenedor-pelicula {
-  min-height: 100vh; /* Asegura que ocupe toda la altura visible */
-  background-color: #f9f9f9; /* Color de fondo más suave */
-  margin: 0; /* Elimina margen superior innecesario */
-  width: 100%;
-}
-
-/* Contenedor principal */
-.pelicula-contenedor {
+/* Estilo principal del contenedor */
+.ver-pelicula-container {
+  height: auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Asegurar que se adapte al espacio disponible */
-  overflow: hidden;
+}
+
+/* Contenedor de la imagen y la información */
+.pelicula-imagen-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+  width: 100%;
 }
 
 /* Imagen de la película */
-.pelicula-contenedor img {
-  width: 100%; 
-  height: auto; 
-  max-height: 500px; 
+.pelicula-imagen {
+  flex: 1;
+  max-width: 400px;
+  margin-right: 20px;
+}
+
+.pelicula-imagen img {
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-bottom: 3px solid #252850; /* Separador visual */
+  border-radius: 8px;
 }
 
 /* Información de la película */
 .pelicula-info {
-  padding: 25px;
+  flex: 2;
+  max-width: 600px;
+  text-align: left;
+  height: auto;
+}
+
+.pelicula-info h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
   text-align: center;
-  color: #444; /* Texto ligeramente más oscuro para mejor legibilidad */
 }
 
-/* Título de la película */
-.pelicula-titulo {
-  font-size: 2.5rem;
-  margin-top: 15px;
-  color: #252850;
-  font-weight: bold; /* Hace que el título sea más destacado */
+.pelicula-info p {
+  font-size: 1.1rem;
+  margin: 8px 0;
+  color: #555;
 }
 
-/* Descripción de la película */
-.pelicula-descripcion {
-  font-size: 1.2rem;
-  margin: 15px 0;
-  color: #666; /* Texto secundario más claro */
-  text-align: justify; 
-  line-height: 1.6; /* Mejora la legibilidad */
+.pelicula-info strong {
+  color: #333;
 }
 
-/* Botón para reservar */
+/* Estilo para el contenedor del trailer */
+.pelicula-trailer {
+  margin-top: 300px;
+  text-align: center;
+}
+
+.pelicula-trailer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Contenedor del video */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container iframe {
+  border-radius: 8px;
+  max-width: 100%;
+  height: 315px;
+}
+
+/* Estilo del componente de reserva */
+.reserva {
+  margin-top: 20px;
+}
+
+/* Estilo de carga */
+.loading {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
 .boton-reservar {
-  display: inline-block;
-  padding: 12px 25px;
+  margin-top: 20px;
+  padding: 10px 20px;
   background-color: #252850;
   color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  margin-top: 20px;
-  font-size: 1rem;
-  font-weight: bold;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .boton-reservar:hover {
-  background-color: #fff;
-  color: #252850;
-  border: 2px solid #252850;
-  transform: translateY(-3px); 
+  background-color: #ff914d;
 }
